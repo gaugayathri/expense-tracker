@@ -1,4 +1,4 @@
-# demo project(https://github.com/gaugayathri/code-aplha-project-1/issues/new)
+# demo project(https://github.com/gaugayathri/code-aplha-project-1/issues/2)
 
 
 
