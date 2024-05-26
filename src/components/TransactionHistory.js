@@ -6,7 +6,7 @@ const TransactionHistory = ({transaction,handleDelete}) => {
       <h2>Transaction History</h2>  
       <ul className='transactions'>
         {
-          transaction.map((data)=><li key={data.id}>{data.name} ${data.amount}
+          transaction.map((data,index)=><li key={index}>{data.name} ${data.amount}
           <button onClick={()=>handleDelete(data.id)}>x</button>
           </li>)
         }

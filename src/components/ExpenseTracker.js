@@ -3,15 +3,14 @@ import Expense from './Expense'
 import TransactionHistory from './TransactionHistory'
 import TransactionForm from './TransactionForm'
 
-const TransactionData=[
-    
-]
+
 
 
 const ExpenseTracker = () => {
     const [income,setIncome]=useState(0)
     const [expense,setExepense]=useState(0)
-    const [transaction,setTransaction] =useState(TransactionData)
+    const [transaction,setTransaction] =useState([])
+
 
 
     const calculateTransaction=()=>{
@@ -24,18 +23,11 @@ const ExpenseTracker = () => {
                expense+=data.amount
             }
         })
+        
         setIncome(income)
         setExepense(expense)
-        saveState()
     }
-useEffect(()=>{
-    let localstate=JSON.parse(localStorage.getItem('expense-tracker'))
-    if(localstate){
-        setTransaction(localstate)
-    }else{
-        calculateTransaction()
-    }
-},[])
+    
     
 
     useEffect(()=>{
@@ -43,9 +35,6 @@ useEffect(()=>{
     },[transaction])
 
 
- let saveState=()=>{
-    localStorage.setItem('expense-tracker',JSON.stringify(transaction))
- }   
 
 let AddnewTransaction=(item)=>{
         let clonetransaction=[...transaction,item]
@@ -54,6 +43,7 @@ let AddnewTransaction=(item)=>{
 let deleteTransaction=(id)=>{
     let deleteArray=transaction.filter((item)=>item.id !==id)
     setTransaction(deleteArray)
+    console.log(transaction)
     
 }
     return (

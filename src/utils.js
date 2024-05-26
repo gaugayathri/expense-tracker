@@ -3,4 +3,4 @@ const uniqueId=()=>{
 }
 
 
-export default uniqueId;
+export  {uniqueId};
